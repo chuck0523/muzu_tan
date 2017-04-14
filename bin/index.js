@@ -21,7 +21,6 @@ const tweet = () => {
   client.post('statuses/update', { status: message })
     .then(tweet => console.log(`${tweet} was successfully tweeted.`))
     .catch(error => console.error(`Failed to tweet ${tweet}.`))
-  })
 }
 
 new CronJob({
