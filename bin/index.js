@@ -13,11 +13,10 @@ const client = new Twitter({
   access_token_secret,
 })
 
-const cronTime = '0 10 0-14 * * *'
+const cronTime = '0 0 0-14 * * *'
 
 const tweet = () => {
   const message = 'test'
-  console.log(message)
   client.post('statuses/update', { status: message })
     .then(tweet => console.log(`${tweet} was successfully tweeted.`))
     .catch(error => console.error(`Failed to tweet ${tweet}.`))
