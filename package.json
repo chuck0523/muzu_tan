@@ -1,0 +1,20 @@
+{
+  "name": "muzu_tan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuck0523/muzu_tan.git"
+  },
+  "keywords": [],
+  "author": "Twitter bot to speak English words problems",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuck0523/muzu_tan/issues"
+  },
+  "homepage": "https://github.com/chuck0523/muzu_tan#readme"
+}
