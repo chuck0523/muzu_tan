@@ -13,7 +13,7 @@ const client = new Twitter({
   access_token_secret,
 })
 
-const cromTime = '0 0 0-14 * * *'
+const cronTime = '0 0 0-14 * * *'
 
 const tweet = () => {
   const message = 'test'

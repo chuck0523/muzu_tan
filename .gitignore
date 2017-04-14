@@ -1,1 +1,6 @@
+# node application
 node_modules/
+npm-debug.log
+
+# debug
+local_run.sh
