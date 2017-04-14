@@ -1,7 +1,7 @@
 {
   "name": "muzu_tan",
   "version": "1.0.0",
-  "description": "",
+  "description": "Twitter bot to speak English words questions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/chuck0523/muzu_tan.git"
   },
   "keywords": [],
-  "author": "Twitter bot to speak English words questions",
+  "author": "chuck",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chuck0523/muzu_tan/issues"
