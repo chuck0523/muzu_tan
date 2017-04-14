@@ -2,9 +2,9 @@
   "name": "muzu_tan",
   "version": "1.0.0",
   "description": "Twitter bot to speak English words questions",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bin/index"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/chuck0523/muzu_tan/issues"
   },
-  "homepage": "https://github.com/chuck0523/muzu_tan#readme"
+  "homepage": "https://github.com/chuck0523/muzu_tan#readme",
+  "dependencies": {
+    "cron": "^1.2.1",
+    "express": "^4.15.2",
+    "twitter": "^1.7.0"
+  }
 }
