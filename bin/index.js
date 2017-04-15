@@ -1,17 +1,6 @@
 const app = require('../app')
-const Twitter = require('twitter')
 const CronJob = require('cron').CronJob
-
-const {
-  consumer_key, consumer_secret, access_token_key, access_token_secret
-} = app.get('options')
-
-const client = new Twitter({
-  consumer_key,
-  consumer_secret,
-  access_token_key,
-  access_token_secret,
-})
+const client = require('../lib/twitterClient')(app.get('options'))
 
 // tweet
 const tweetTime = '0 0 0-14 * * *'
