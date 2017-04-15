@@ -1,6 +1,6 @@
 const app = require('../app')
 const cron = require('../lib/cron')
-const client = require('../lib/twitterClient')(app.get('options'))
+const client = require('../lib/twitter').initClient(app.get('options'))
 
 // tweet
 const tweetTime = '0 38 0-14 * * *'
