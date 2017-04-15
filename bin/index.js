@@ -1,9 +1,9 @@
 const app = require('../app')
-const CronJob = require('cron').CronJob
+const cron = require('../lib/cron')
 const client = require('../lib/twitterClient')(app.get('options'))
 
 // tweet
-const tweetTime = '0 0 0-14 * * *'
+const tweetTime = '0 38 0-14 * * *'
 
 const tweet = () => {
   const message = 'test'
@@ -11,13 +11,7 @@ const tweet = () => {
     .then(tweet => console.log(`${tweet} was successfully tweeted.`))
     .catch(error => console.error(`Failed to tweet ${tweet}.`))
 }
-new CronJob({
-  cronTime: tweetTime,
-  onTick: () => {
-    tweet()
-  },
-  start: true,
-})
+cron.createJob(tweetTime, tweet)
 
 // follow back
 const userStream = client.stream('user')
@@ -29,7 +23,7 @@ userStream.on('follow', (data) => {
 
 
 // unfollow
-const unfollowTime = '0 0 0-14 * * *'
+const unfollowTime = '0 38 0-14 * * *'
 
 const unfollow = () => {
   client.get('friends/list', {})
@@ -44,10 +38,4 @@ const unfollow = () => {
     })
     .catch(error => console.error(`Failed to unfolllow: ${error}`))
 }
-new CronJob({
-  cronTime: unfollowTime,
-  onTick: () => {
-    unfollow()
-  },
-  start: true,
-})
+cron.createJob(unfollowTime, unfollow)
