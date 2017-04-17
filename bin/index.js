@@ -6,19 +6,18 @@ const mongoose = require('../lib/mongo').connect(app.get('options'))
 const { Word } = require('../models')(mongoose)
 
 // tweet
-const tweetTime = '0 38 0-14 * * *'
+const tweetTime = '0 0 0-14 * * *'
 
 const tweet = () => {
   // still under development
-  Word.findOne()
+  Word.findRandom()
   .then(word => {
-    client.post('statuses/update', { status: word.meaning })
+    client.post('statuses/update', { status: `ランダム英単語【${word.name}】: ${word.meaning}` })
       .then(tweet => console.log(`${tweet} was successfully tweeted.`))
       .catch(error => console.error(`Failed to tweet ${tweet}.`))
   })
 }
 cron.createJob(tweetTime, tweet)
-tweet()
 
 // follow back
 const userStream = client.stream('user')
@@ -30,7 +29,7 @@ userStream.on('follow', (data) => {
 
 
 // unfollow
-const unfollowTime = '0 38 0-14 * * *'
+const unfollowTime = '0 0 0-14 * * *'
 
 const unfollow = () => {
   client.get('friends/list', {})
