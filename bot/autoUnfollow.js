@@ -1,5 +1,5 @@
 module.exports = (twitter, cron) => {
-  const unfollowTime = '0 0 0-14 * * *'
+  const unfollowTime = '0 30 0-14 * * *'
 
   const unfollow = () => {
     twitter.getAllFollowers()
