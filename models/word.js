@@ -10,7 +10,8 @@ module.exports = (mongoose) => {
 
   const Word = mongoose.model('Word', WordSchema)
 
-  const findRandom = () => {
+  // add custom methods
+  Word.findRandom = () => {
     return Word.count().exec()
       .then(count => {
         const random = Math.floor(Math.random() * count)
@@ -19,7 +20,5 @@ module.exports = (mongoose) => {
       .catch(err => console.error('Failed to get random word.'))
   }
 
-  return {
-    findRandom,
-  }
+  return Word
 }
