@@ -2,18 +2,23 @@ const app = require('../app')
 const cron = require('../lib/cron')
 const client = require('../lib/twitter').initClient(app.get('options'))
 
-require('../lib/mongo').connect(app.get('options'))
+const mongoose = require('../lib/mongo').connect(app.get('options'))
+const { Word } = require('../models')(mongoose)
 
 // tweet
 const tweetTime = '0 38 0-14 * * *'
 
 const tweet = () => {
-  const message = 'test'
-  client.post('statuses/update', { status: message })
-    .then(tweet => console.log(`${tweet} was successfully tweeted.`))
-    .catch(error => console.error(`Failed to tweet ${tweet}.`))
+  // still under development
+  Word.findOne()
+  .then(word => {
+    client.post('statuses/update', { status: word.meaning })
+      .then(tweet => console.log(`${tweet} was successfully tweeted.`))
+      .catch(error => console.error(`Failed to tweet ${tweet}.`))
+  })
 }
 cron.createJob(tweetTime, tweet)
+tweet()
 
 // follow back
 const userStream = client.stream('user')
