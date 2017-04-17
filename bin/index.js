@@ -2,7 +2,7 @@ const app = require('../app')
 const cron = require('../lib/cron')
 const client = require('../lib/twitter').initClient(app.get('options'))
 
-// require('../lib/mongo').connect(app.get('options'))
+require('../lib/mongo').connect(app.get('options'))
 
 // tweet
 const tweetTime = '0 38 0-14 * * *'
