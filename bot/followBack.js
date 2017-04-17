@@ -1,5 +1,6 @@
 module.exports = (twitter) => {
   twitter.userStream.on('follow', (data) => {
+    // TODO: If myself return 
     console.log(`Detected follow by ${data.source.name}`)
     twitter.follow(data.source.id_str)
       .then(res => console.log(`Successfully followed back: ${res.name}`))
