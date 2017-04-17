@@ -21,5 +21,8 @@
     "cron": "^1.2.1",
     "express": "^4.15.2",
     "twitter": "^1.7.0"
+  },
+  "devDependencies": {
+    "mongoose": "^4.9.5"
   }
 }
