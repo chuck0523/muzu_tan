@@ -2,6 +2,7 @@ module.exports = (twitter, cron) => {
   const unfollowTime = '0 30 0-14 * * *'
 
   const unfollow = () => {
+    console.log('Start to search who to unfollow')
     twitter.getAllFollowers()
       .then(({ users }) => {
         const user = users.find(user => !user.live_following)
