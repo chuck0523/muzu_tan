@@ -1,7 +1,7 @@
 # このレポジトリについて
 
- Twitter上で動かすBotのソースコード置き場.
- Herekuと連動.
+ Twitter上Botのソースコード置き場.
+ Herekuと連動. CircleCIでテスト.
 
 # 機能
 
@@ -30,6 +30,7 @@
 - [node-twitter](https://github.com/desmondmorris/node-twitter)
 - [google-translate-api](https://github.com/matheuss/google-translate-api)
 - [node-cron](https://github.com/kelektiv/node-cron)
+- [Jest](https://facebook.github.io/jest/)
 
 # 参考
 
