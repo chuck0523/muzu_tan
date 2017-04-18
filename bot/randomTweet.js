@@ -4,7 +4,6 @@ module.exports = (Word, twitter, cron) => {
   const tweetTime = '0 0 0-14 * * *'
 
   const tweet = () => {
-    console.log('Start to tweet a random word.')
     Word.findRandom()
       .then(word => `【${word.name}】: ${word.meaning} #ランダム英単語`)
       .then(twitter.tweet)
