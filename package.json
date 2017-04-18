@@ -22,6 +22,7 @@
     "bluebird": "^3.5.0",
     "cron": "^1.2.1",
     "express": "^4.15.2",
+    "google-translate-api": "^2.2.2",
     "mongoose": "^4.9.5",
     "twitter": "^1.7.0"
   }
