@@ -28,6 +28,7 @@
 - Node.js
 - [Express](https://expressjs.com/)
 - [node-twitter](https://github.com/desmondmorris/node-twitter)
+- [google-translate-api](https://github.com/matheuss/google-translate-api)
 - [node-cron](https://github.com/kelektiv/node-cron)
 
 # 参考
