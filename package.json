@@ -5,7 +5,8 @@
   "main": "bin/index.js",
   "scripts": {
     "start": "node bin/index",
-    "import": "node scripts/importData"
+    "import": "node scripts/importData",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
