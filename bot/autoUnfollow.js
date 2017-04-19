@@ -5,8 +5,8 @@ module.exports = (twitter, cron) => {
     twitter.getAllFollowers()
       .then(({ users }) => {
         const user = users.find(user => !user.live_following)
+        // There's no users to unfollow
         if(user === undefined) {
-          console.log('There\'s no users to unfollow')
           return
         }
         twitter.unfollow(user.id_str)
