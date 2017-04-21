@@ -1,4 +1,4 @@
-const mongoose = require('../lib/mongo')
+const mongoose = require('../lib/mongoose')
 
 const Schema = mongoose.Schema;
 
