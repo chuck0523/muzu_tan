@@ -31,8 +31,6 @@ const resolveText = (text) => {
 
 module.exports = (Word, twitter) => {
   twitter.selfMentionStream.on('data', (data) => {
-    console.log(`Detected mention by ${data.user.name}`)
-
     const text = data.text.replace("@muzu_tan", "")
 
     const replays = {
