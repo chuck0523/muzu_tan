@@ -8,7 +8,7 @@ const sliceQuestion = (text) => {
   return text.match(/\【.+?\】/g)[0].slice(1, -1)
 }
 const sliceOptions = (text) => {
-  return text.split('\n').slice(1, -1).map(q => q.slice(3))
+  return text.split('\n').slice(1, -1).map(q => q.slice(4))
 }
 
 module.exports.checkAnswer = (number, tweetId) => {
