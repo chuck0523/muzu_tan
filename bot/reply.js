@@ -1,6 +1,7 @@
+const { Word } = require('../models')
 const translateApi = require('../lib/translate')
 
-const question = (Word) => {
+const question = () => {
   return Word.findRandom()
     .then(word => `${word.name}の意味は【${word.meaning}】だよ`)
     .catch(err => `Failed to get random word`)
@@ -29,12 +30,12 @@ const resolveText = (text) => {
   return new Error('input error')
 }
 
-module.exports = (Word, twitter) => {
+module.exports = (twitter) => {
   twitter.selfMentionStream.on('data', (data) => {
     const text = data.text.replace("@muzu_tan", "")
 
     const replays = {
-      question: question(Word),
+      question: question(),
       answer: answer(),
       translate: translate(text),
     }

@@ -1,6 +1,6 @@
-// NOTE: still under development
+const { Word } = require('../models')
 
-module.exports = (Word, twitter, cron) => {
+module.exports = (twitter, cron) => {
   const tweetTime = '0 0 0-14 * * *'
 
   const tweet = () => {
