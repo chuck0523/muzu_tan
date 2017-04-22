@@ -1,8 +1,8 @@
-const app = require('../app')
+const options = require('../app').get('options')
 
 // tool setup
-require('../lib/twitter').initClient(app.get('options'))
-require('../lib/mongoose').createConnection(app.get('options'))
+require('../lib/twitter').initClient(options)
+require('../lib/mongoose').createConnection(options)
 
 // activate bot
 require('../bot')
