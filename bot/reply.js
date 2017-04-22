@@ -2,11 +2,7 @@ const twitter = require('../lib/twitter').getClient()
 const { Word } = require('../models')
 const translateApi = require('../lib/translate')
 
-const question = () => {
-  return Word.findRandom()
-    .then(word => `${word.name}の意味は【${word.meaning}】だよ`)
-    .catch(err => `Failed to get random word`)
-}
+const question = require('./questions').yontaku()
 
 const answer = (answer) => {
   return
@@ -35,7 +31,7 @@ twitter.selfMentionStream.on('data', (data) => {
   const text = data.text.replace("@muzu_tan", "")
 
   const replays = {
-    question: question(),
+    question,
     answer: answer(),
     translate: translate(text),
   }

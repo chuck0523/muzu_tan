@@ -5,8 +5,7 @@ const cron = require('../lib/cron')
 const tweetTime = '0 0 0-14 * * *'
 
 const tweet = () => {
-  Word.findRandom()
-    .then(word => `【${word.name}】: ${word.meaning} #ランダム英単語`)
+  require('./questions').yontaku()
     .then(twitter.tweet)
     .then(tweet => console.log(`${tweet} was successfully tweeted.`))
     .catch(error => console.error(`Failed to tweet: ${error}.`))
