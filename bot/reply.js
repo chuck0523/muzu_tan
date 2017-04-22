@@ -2,8 +2,6 @@ const twitter = require('../lib/twitter').getClient()
 const { Word } = require('../models')
 const translateApi = require('../lib/translate')
 
-const question = require('./questions').yontaku()
-
 const answer = (answer) => {
   return
 }
@@ -31,7 +29,7 @@ twitter.selfMentionStream.on('data', (data) => {
   const text = data.text.replace("@muzu_tan", "")
 
   const replays = {
-    question,
+    question: require('./questions').yontaku(),
     answer: answer(),
     translate: translate(text),
   }
