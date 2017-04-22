@@ -1,6 +1,6 @@
-module.exports = (twitter, cron) => {
-  require('./autoUnfollow')(twitter, cron)
+module.exports = (twitter) => {
+  require('./autoUnfollow')(twitter)
   require('./followBack')(twitter)
-  require('./randomTweet')(twitter, cron)
+  require('./randomTweet')(twitter)
   require('./reply')(twitter)
 }

@@ -1,4 +1,6 @@
-module.exports = (twitter, cron) => {
+const cron = require('../lib/cron')
+
+module.exports = (twitter) => {
   const unfollowTime = '0 30 0-14 * * *'
 
   const unfollow = () => {
