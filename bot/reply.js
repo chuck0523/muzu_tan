@@ -29,7 +29,7 @@ twitter.selfMentionStream.on('data', (data) => {
   const text = data.text.replace("@muzu_tan", "")
 
   const replays = {
-    question: require('./questions').yontaku(),
+    question: require('./question').yontaku(),
     answer: answer(),
     translate: translate(text),
   }
