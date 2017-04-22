@@ -5,8 +5,8 @@ const unfollowTime = '0 30 0-14 * * *'
 
 const unfollow = () => {
   twitter.getAllFollowers()
-    .then(({ users }) => {
-      const user = users.find(user => !user.live_following)
+    .then(({ users }) => users.find(user => !user.live_following))
+    .then(user => {
       // There's no users to unfollow
       if(user === undefined) {
         return
