@@ -1,3 +1,4 @@
+const twitter = require('../lib/twitter').getClient()
 const { Word } = require('../models')
 const translateApi = require('../lib/translate')
 
@@ -30,22 +31,20 @@ const resolveText = (text) => {
   return new Error('input error')
 }
 
-module.exports = (twitter) => {
-  twitter.selfMentionStream.on('data', (data) => {
-    const text = data.text.replace("@muzu_tan", "")
+twitter.selfMentionStream.on('data', (data) => {
+  const text = data.text.replace("@muzu_tan", "")
 
-    const replays = {
-      question: question(),
-      answer: answer(),
-      translate: translate(text),
-    }
+  const replays = {
+    question: question(),
+    answer: answer(),
+    translate: translate(text),
+  }
 
-    replays[resolveText(text)]
-      .then(reply =>
-        twitter.tweetTo(`@${data.user.screen_name} ${reply}`, data.id_str)
-          .then(res => console.log(`Successfully reply to: ${data.user.name}`))
-          .catch(err => console.error(`Failed to reply: ${err}`))
-      )
-      .catch(console.error)
-  })
-}
+  replays[resolveText(text)]
+    .then(reply =>
+      twitter.tweetTo(`@${data.user.screen_name} ${reply}`, data.id_str)
+        .then(res => console.log(`Successfully reply to: ${data.user.name}`))
+        .catch(err => console.error(`Failed to reply: ${err}`))
+    )
+    .catch(console.error)
+})
