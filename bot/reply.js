@@ -2,21 +2,16 @@ const twitter = require('../lib/twitter').getClient()
 const { Word } = require('../models')
 const translateApi = require('../lib/translate')
 
-const answer = (answer) => {
-  return
-}
-
 const translate = (text) => {
   return translateApi.toEn(text)
     .then(res => `${text}の意味は【${res.text}】だよ`)
 }
 
-const resolveText = (text) => {
+const classifyReply = (text, isReply) => {
   if(text === "") {
     return 'question'
   }
-
-  if([1, 2, 3, 4].includes(text)) {
+  if(isReply && ['1', '2', '3', '4'].includes(text)) {
     return 'answer'
   }
   if(text.split(" ").length === 1) {
@@ -26,19 +21,22 @@ const resolveText = (text) => {
 }
 
 twitter.selfMentionStream.on('data', (data) => {
-  const text = data.text.replace("@muzu_tan", "")
+  const text = data.text.replace("@muzu_tan", "").trim()
+  const questionIdStr = data.in_reply_to_status_id_str
+  const isReply = questionIdStr !== null
 
-  const replays = {
+  const replayCreator = {
     question: require('./question').yontaku(),
-    answer: answer(),
+    answer: require('./answer').checkAnswer(text, questionIdStr),
     translate: translate(text),
   }
 
-  replays[resolveText(text)]
-    .then(reply =>
+  replayCreator[classifyReply(text, isReply)]
+    .then(reply => {
+      console.log(reply)
       twitter.tweetTo(`@${data.user.screen_name} ${reply}`, data.id_str)
         .then(res => console.log(`Successfully reply to: ${data.user.name}`))
         .catch(err => console.error(`Failed to reply: ${err}`))
-    )
+    })
     .catch(console.error)
 })

@@ -35,4 +35,8 @@ Word.findRandom4 = () => {
     .catch(err => console.error(`Failed to get random 4 word: ${err}`))
 }
 
+Word.findByName = (name) => {
+  return Word.findOne({ name })
+}
+
 module.exports = Word
