@@ -28,5 +28,5 @@ module.exports.checkAnswer = (number, tweetId) => {
         return `残念！${words[0].name}の意味は【${words[0].meaning}】でした`
       }
     })
-    .catch(err => console.error(`Failed to check answer: ${err}`))
+    .catch(err => console.error('Failed to check answer: ', err))
 }

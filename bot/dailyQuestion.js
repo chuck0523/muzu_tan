@@ -7,7 +7,7 @@ const tweetTime = '0 0 9,12,18 * * *'
 const tweet = () => {
   require('./question').yontaku()
     .then(twitter.tweet)
-    .catch(error => console.error(`Failed to tweet: ${error}.`))
+    .catch(err => console.error('Failed to tweet: ', err))
 }
 
 // set cron task

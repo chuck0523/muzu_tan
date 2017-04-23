@@ -14,7 +14,7 @@ const unfollow = () => {
       twitter.unfollow(user.id_str)
       console.log(`Successfully unfollow: ${user.name}(@${user.screen_name})`)
     })
-    .catch(error => console.error(`Failed to unfolllow: ${error}`))
+    .catch(err => console.error('Failed to unfolllow: ', err))
 }
 
 // set cron job
