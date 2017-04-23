@@ -1,3 +1,3 @@
 require('./follow')
-require('./dailyQuestion')
+require('./tweet')
 require('./reply')
