@@ -23,7 +23,7 @@ module.exports.checkAnswer = (number, tweetId) => {
     })
     .then(words => { // words => [answer, selected]
       if(words[0].meaning === words[1]) {
-        return '正解!'
+        return '正解です！'
       } else {
         return `残念！正解は【${words[0].meaning}】でした`
       }
