@@ -32,10 +32,8 @@ twitter.selfMentionStream.on('data', (data) => {
   }
 
   replayCreator[classifyReply(text, isReply)]
-    .then(reply => {
-      twitter.tweetTo(`@${data.user.screen_name} ${reply}`, data.id_str)
-        .then(res => console.log(`Successfully reply to: ${data.user.name}`))
-        .catch(err => console.error(`Failed to reply: ${err}`))
-    })
-    .catch(console.error)
+    .then(reply => `@${data.user.screen_name} ${reply}`)
+    .then(tweet => twitter.tweetTo(tweet, data.id_str))
+    .then(res => console.log(`Successfully reply to: ${data.user.name}`))
+    .catch(err => console.error(`Failed to reply: ${err}`))
 })
