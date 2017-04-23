@@ -25,7 +25,7 @@ module.exports.checkAnswer = (number, tweetId) => {
       if(words[0].meaning === words[1]) {
         return '正解です！'
       } else {
-        return `残念！正解は【${words[0].meaning}】でした`
+        return `残念！${words[0].name}の意味は【${words[0].meaning}】でした`
       }
     })
     .catch(err => console.error(`Failed to check answer: ${err}`))
