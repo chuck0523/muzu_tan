@@ -1,4 +1,4 @@
-const { AT_ACCOUNT_NAME } = require('./../constants')
+const { AT_ACCOUNT_NAME, ZENKAKU_OPTION_NUMBERS } = require('./../constants')
 
 module.exports.removeAccountName = (text) => {
   return text.replace(AT_ACCOUNT_NAME, '').trim()
@@ -12,4 +12,11 @@ module.exports.sliceQuestion = (text) => {
 }
 module.exports.sliceOptions = (text) => {
   return text.split('\n').slice(1, -1).map(q => q.slice(4)) // 4 = length of '(1) '
+}
+
+module.exports.toHankaku = (number) => {
+  if(ZENKAKU_OPTION_NUMBERS.includes(number)) {
+    return String.fromCharCode(number.charCodeAt(0)-0xFEE0)
+  }
+  return number
 }
