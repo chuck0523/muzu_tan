@@ -1,9 +1,6 @@
-const cron = require('../lib/cron')
-const twitter = require('../lib/twitter').getClient()
+const twitter = require('../../lib/twitter').getClient()
 
-const unfollowTime = '0 30 12 * * *'
-
-const unfollow = () => {
+module.exports = () => {
   twitter.getAllFollowers()
     .then(({ users }) => users.find(user => !user.live_following))
     .then(user => {
@@ -16,6 +13,3 @@ const unfollow = () => {
     })
     .catch(err => console.error('Failed to unfolllow: ', err))
 }
-
-// set cron job
-cron.createJob(unfollowTime, unfollow)

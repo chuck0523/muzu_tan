@@ -1,6 +1,6 @@
 // TODO: Due to API limit, make this cron task
 
-const twitter = require('../lib/twitter').getClient()
+const twitter = require('../../lib/twitter').getClient()
 
 twitter.userStream.on('follow', (data) => {
 
