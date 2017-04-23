@@ -7,7 +7,6 @@ const tweetTime = '0 0 0-14 * * *'
 const tweet = () => {
   require('./question').yontaku()
     .then(twitter.tweet)
-    .then(tweet => console.log(`${tweet} was successfully tweeted.`))
     .catch(error => console.error(`Failed to tweet: ${error}.`))
 }
 
