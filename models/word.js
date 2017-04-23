@@ -19,11 +19,11 @@ Word.findRandom = () => {
     .catch(err => console.error('Failed to get random word'))
 }
 
-Word.findRandom4 = () => {
+Word.findRandoms = (count) => {
   return Word.count().exec()
     .then(count => {
       let nums = [Math.floor(Math.random() * count)]
-      while(nums.length < 4) {
+      while(nums.length < count) {
         const random = Math.floor(Math.random() * count)
         if(nums[nums.length - 1] !== random) {
           nums.push(random)
@@ -32,7 +32,7 @@ Word.findRandom4 = () => {
       return nums
     })
     .then(nums => Promise.all(nums.map(num => Word.findOne().skip(num))))
-    .catch(err => console.error(`Failed to get random 4 word: ${err}`))
+    .catch(err => console.error(`Failed to get random words: ${err}`))
 }
 
 Word.findByName = (name) => {

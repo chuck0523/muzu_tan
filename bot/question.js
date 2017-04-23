@@ -1,7 +1,7 @@
 const { Word } = require('../models')
 
 module.exports.yontaku = () => {
-  return Word.findRandom4()
+  return Word.findRandoms(4)
     .then(words => {
       const answer = words[Math.floor(Math.random() * 4)]
       return `【${answer.name}】の意味はどれでしょう？\n` +
