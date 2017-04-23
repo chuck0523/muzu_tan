@@ -1,5 +1,4 @@
 const twitter = require('../lib/twitter').getClient()
-const { Word } = require('../models')
 const cron = require('../lib/cron')
 
 const tweetTime = '0 0 9,12,18 * * *'
