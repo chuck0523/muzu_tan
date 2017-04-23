@@ -1,11 +1,12 @@
 // TODO: Due to API limit, make this cron task
 
 const twitter = require('../../lib/twitter').getClient()
+const { ACCOUNT_ID_STRING } = require('../constants')
 
 twitter.userStream.on('follow', (data) => {
 
   // @muzu_tan's follow event
-  if(data.source.id_str === '771649236') { // TODO: Dedifine as constant
+  if(data.source.id_str === ACCOUNT_ID_STRING) {
     return
   }
 
