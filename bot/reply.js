@@ -8,7 +8,7 @@ const translate = (text) => {
 }
 
 const classifyReply = (text, isReply) => {
-  if(text === "") {
+  if(!isReply && text === "") {
     return 'question'
   }
   if(isReply && ['1', '2', '3', '4'].includes(text)) {
