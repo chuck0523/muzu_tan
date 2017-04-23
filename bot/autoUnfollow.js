@@ -1,7 +1,7 @@
 const cron = require('../lib/cron')
 const twitter = require('../lib/twitter').getClient()
 
-const unfollowTime = '0 30 0-14 * * *'
+const unfollowTime = '0 30 12 * * *'
 
 const unfollow = () => {
   twitter.getAllFollowers()

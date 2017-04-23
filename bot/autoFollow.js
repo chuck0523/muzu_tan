@@ -1,7 +1,7 @@
 const cron = require('../lib/cron')
 const twitter = require('../lib/twitter').getClient()
 
-const followTime = '0 45 0-10 * * *'
+const followTime = '0 45 9-19 * * *'
 
 const autoFollow = () => {
   twitter.searchRecentTweets('英語勉強中', 1)
