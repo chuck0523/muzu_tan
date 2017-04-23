@@ -9,6 +9,6 @@ module.exports.yontaku = () => {
         `(2) ${words[1].meaning}\n` +
         `(3) ${words[2].meaning}\n` +
         `(4) ${words[3].meaning}\n` +
-        `1, 2, 3, 4のどれかでお答えください`
+        '1, 2, 3, 4のどれかでお答えください'
     })
 }
