@@ -1,6 +1,14 @@
 const twitter = require('../lib/twitter').getClient()
 const { Word } = require('../models')
 
+
+const toHankaku = (number) => {
+  if(['１', '２', '３', '４'].includes(number)) {
+    return String.fromCharCode(number.charCodeAt(0)-0xFEE0)
+  }
+  return number
+}
+
 // Question format example:
 // @hogehoge 【shenanigan】の意味はどれでしょう？\n(1) 均衡\n(2) いたずら、悪ふざけ\n(3) 黙想、熟考、熟視、計画\n(4) いたずら、悪ふざけ\n1, 2, 3, 4のどれかでお答えください
 
@@ -11,7 +19,8 @@ const sliceOptions = (text) => {
   return text.split('\n').slice(1, -1).map(q => q.slice(4))
 }
 
-module.exports.checkAnswer = (number, tweetId) => {
+module.exports.checkAnswer = (_number, tweetId) => {
+  const number = toHankaku(_number)
   return twitter.getTweet(tweetId)
     .then(({ text }) => {
       return Promise.all([
