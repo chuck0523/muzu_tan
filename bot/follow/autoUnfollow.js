@@ -11,5 +11,5 @@ module.exports = () => {
       twitter.unfollow(user.id_str)
       console.log(`Successfully unfollow: ${user.name}(@${user.screen_name})`)
     })
-    .catch(err => console.error('Failed to unfolllow: ', err))
+    .catch(err => console.error('Failed to unfollow: ', err))
 }
