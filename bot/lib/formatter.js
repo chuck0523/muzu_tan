@@ -1,4 +1,4 @@
-const { AT_ACCOUNT_NAME } = require('./constants')
+const { AT_ACCOUNT_NAME } = require('./../constants')
 
 module.exports.removeAccountName = (text) => {
   return text.replace(AT_ACCOUNT_NAME, '').trim()

@@ -1,4 +1,4 @@
-const { Word } = require('../models')
+const { Word } = require('../../models/index')
 
 module.exports.yontaku = () => {
   return Word.findRandoms(4)

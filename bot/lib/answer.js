@@ -1,6 +1,6 @@
-const twitter = require('../lib/twitter').getClient()
-const { Word } = require('../models')
-const { ZENKAKU_OPTION_NUMBERS } = require('./constants')
+const twitter = require('../../lib/twitter').getClient()
+const { Word } = require('../../models/index')
+const { ZENKAKU_OPTION_NUMBERS } = require('./../constants')
 const { sliceQuestion, sliceOptions} = require('./formatter')
 
 const toHankaku = (number) => {

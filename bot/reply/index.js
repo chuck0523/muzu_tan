@@ -1,11 +1,11 @@
 const twitter = require('../../lib/twitter').getClient()
 const translateApi = require('../../lib/translate')
 
-const { yontaku } = require('../question')
-const { checkAnswer } = require('../answer')
+const { yontaku } = require('../lib/question')
+const { checkAnswer } = require('../lib/answer')
 const { AT_ACCOUNT_NAME, OPTION_NUMBERS } = require('../constants')
 const { isEmptyReply, isAnswerReply } = require('./classifier')
-const { removeAccountName } = require('../formatter')
+const { removeAccountName } = require('../lib/formatter')
 
 twitter.selfMentionStream.on('data', (data) => {
 
