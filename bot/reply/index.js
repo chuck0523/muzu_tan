@@ -19,10 +19,7 @@ twitter.selfMentionStream.on('data', (data) => {
   }
 
   replyCreator
-    .then(reply => {
-      console.log(reply)
-      return `@${data.user.screen_name} ${reply}`
-    })
+    .then(reply => `@${data.user.screen_name} ${reply}`)
     .then(tweet => twitter.tweetTo(tweet, data.id_str))
     .catch(err => console.error('Failed to reply: ', err))
 })
