@@ -18,5 +18,5 @@ twitter.userStream.on('follow', (data) => {
 
   twitter.follow(data.source.id_str)
     .then(res => console.log(`Successfully followed back: ${res.name}`))
-    .catch(err => console.err('Failed to folllow back: ', err))
+    .catch(err => console.err('Failed to follow back: ', err))
 })
