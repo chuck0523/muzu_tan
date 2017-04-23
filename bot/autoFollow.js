@@ -13,7 +13,7 @@ const autoFollow = () => {
       }
       return twitter.follow(statuses[0].user.id_str)
     })
-    .then(res => console.log(`Successfully followed: ${res.name}`))
+    .then(res => console.log(`Successfully followed: ${statuses[0].user.name}(@${statuses[0].user.screen_name})`))
     .catch(error => console.error(`Failed to folllow back: ${error}`))
 }
 

@@ -12,7 +12,7 @@ const unfollow = () => {
         return
       }
       twitter.unfollow(user.id_str)
-      console.log(`Successfully unfollow: ${user.name}`)
+      console.log(`Successfully unfollow: ${user.name}(@${user.screen_name})`)
     })
     .catch(error => console.error(`Failed to unfolllow: ${error}`))
 }
