@@ -26,6 +26,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "cron": "^1.2.1",
+    "date-fns": "^1.28.3",
     "express": "^4.15.2",
     "google-translate-api": "^2.2.2",
     "jest": "^19.0.2",
