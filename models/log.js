@@ -4,10 +4,8 @@ const { startOfYesterday } = require('date-fns')
 
 // schema
 const LogSchema = new Schema({
-  _id:        { type: Number, required: true },
-
   // log typs { 1: 'tweet', 2: 'reply', 3: 'follow', 4: 'error', 0: others}
-  type:       { type: Number, min: 0, max: 4, required: true },
+  type:       { type: Number, min: 0, max: 6, required: true },
 
   // log direction { 0: 'to', 1: 'from' }
   direction:  { type: Number, min: 0, max: 1 },
