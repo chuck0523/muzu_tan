@@ -22,4 +22,11 @@ Log.getYesterdayLogs = () => {
     .catch(err => console.error('Failed to get logs from yesterday :', err))
 }
 
+Log.saveFollowingLog = (name) => {
+  return new Log({ type: 3, direction: 0, log: name }).save()
+}
+Log.saveFollowedLog = (name) => {
+  return new Log({ type: 3, direction: 1, log: name }).save()
+}
+
 module.exports = Log
