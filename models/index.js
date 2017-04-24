@@ -1,3 +1,4 @@
 module.exports = {
-  Word: require('./word')
+  Log: require('./log'),
+  Word: require('./word'),
 }
