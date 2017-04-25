@@ -16,7 +16,7 @@ module.exports = () => {
         }
       })
 
-      sendHtmlMail({ subject: 'test', html: `
+      sendHtmlMail({ subject: 'Muzu_tan Follow Report', html: `
         <h1>Daily Follow Report</h1>
         <h2>Followed by accounts below</h2>
         <ul>${followed.join('')}</ul>
