@@ -31,6 +31,7 @@
     "google-translate-api": "^2.2.2",
     "jest": "^19.0.2",
     "mongoose": "^4.9.5",
+    "nodemailer": "^4.0.1",
     "twitter": "^1.7.0"
   }
 }
