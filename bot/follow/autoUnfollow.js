@@ -11,6 +11,6 @@ module.exports = () => {
       }
       return twitter.unfollow(user.id_str)
     })
-    .then(result => FollowLog.saveUnfollow({ account:  `${result.name}(@${result.screen_name})`}))
+    .then(result => FollowLog.saveUnfollow({ account: `${result.name}(@${result.screen_name})`}))
     .catch(err => console.error('Failed to unfollow: ', err))
 }
