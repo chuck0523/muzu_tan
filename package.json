@@ -2,13 +2,13 @@
   "name": "muzu_tan",
   "version": "1.0.0",
   "description": "Twitter bot to speak English words questions",
-  "main": "bin/index.js",
+  "main": "index.js",
   "engines": {
     "node": "6.10.2",
     "npm": "3.x"
   },
   "scripts": {
-    "start": "node bin/index",
+    "start": "node index",
     "import": "node scripts/importData",
     "test": "jest"
   },
