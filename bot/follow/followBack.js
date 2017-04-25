@@ -1,4 +1,4 @@
-const { Log } = require('../../models')
+const { FollowLog } = require('../../models')
 
 // TODO: Due to API limit, make this cron task
 
@@ -12,7 +12,8 @@ twitter.userStream.on('follow', (data) => {
     return
   }
 
-  Log.saveFollowedLog(`${data.source.name}(@${data.source.screen_name})`)
+  const account = `${data.source.name}(@${data.source.screen_name})`
+  FollowLog.saveFollowed({ account })
 
   // already following
   if(data.source.following) {
@@ -20,6 +21,6 @@ twitter.userStream.on('follow', (data) => {
   }
 
   twitter.follow(data.source.id_str)
-    .then(res => Log.saveFollowingLog(`${res.name}(@${res.screen_name})`))
+    .then(res => FollowLog.saveFollowBack({ account }))
     .catch(err => console.error('Failed to follow back: ', err))
 })

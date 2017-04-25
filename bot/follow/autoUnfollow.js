@@ -1,4 +1,5 @@
 const twitter = require('../../lib/twitter').getClient()
+const { FollowLog } = require('../../models')
 
 module.exports = () => {
   twitter.getAllFollowers()
@@ -8,8 +9,8 @@ module.exports = () => {
       if(user === undefined) {
         return
       }
-      twitter.unfollow(user.id_str)
-      console.log(`Successfully unfollow: ${user.name}(@${user.screen_name})`)
+      return twitter.unfollow(user.id_str)
     })
+    .then(result => FollowLog.saveUnfollow({ account:  `${result.name}(@${result.screen_name})`}))
     .catch(err => console.error('Failed to unfollow: ', err))
 }

@@ -1,15 +1,21 @@
 const twitter = require('../../lib/twitter').getClient()
+const { FollowLog } = require('../../models')
 
 module.exports = () => {
   twitter.searchRecentTweets('英語勉強中', 1)
     .then(({ statuses }) => {
       // already following
       if(statuses[0].user.following) {
-        console.log('already following')
         return
       }
-      return twitter.follow(statuses[0].user.id_str)
+      return Promise.all([
+        twitter.follow(statuses[0].user.id_str),
+        Promise.resolve(statuses[0].text)
+      ])
     })
-    .then(res => console.log(`Successfully followed: ${statuses[0].user.name}(@${statuses[0].user.screen_name})`))
+    .then(results => FollowLog.saveSearchFollow({
+      account: `${results[0].name}(@${results[0].screen_name})`,
+      search_result: results[1],
+    }))
     .catch(error => console.error('Failed to follow back: ', error))
 }
