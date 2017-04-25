@@ -12,7 +12,7 @@ module.exports = () => {
         if(log.direction === 1) {
           followed.push(`<li>${log.account}</li>`)
         } else if(log.follow_type === 0) {
-          searched.push(`<li><b>${log.account}<b><br /> ${log.search_result}</li>`)
+          searched.push(`<li><b>${log.account}</b><br /> ${log.search_result}</li>`)
         }
       })
 
