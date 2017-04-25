@@ -6,3 +6,6 @@ require('../lib/mongoose').createConnection(options)
 
 // activate bot
 require('../bot')
+
+// activate mailer
+require('../mailer')
