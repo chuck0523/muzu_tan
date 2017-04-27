@@ -31,3 +31,7 @@ module.exports.loggerCreator = (reply) => {
     return ReplyLog.saveOtherReply
   }
 }
+
+// for tests
+module.exports.isEmptyReply = isEmptyReply
+module.exports.isAnswerReply = isAnswerReply
