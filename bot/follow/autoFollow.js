@@ -2,7 +2,7 @@ const twitter = require('../../lib/twitter').getClient()
 const { FollowLog } = require('../../models')
 
 module.exports = () => {
-  twitter.searchRecentTweets('TOEIC900', 1)
+  twitter.searchRecentTweets('TOEIC高得点', 1)
     .then(({ statuses }) => {
       if(statuses[0].user.following) {
         return Promise.reject('Already following')
