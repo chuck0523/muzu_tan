@@ -4,3 +4,16 @@ machine:
   npm:
     version: 3.10.10
   timezone: Asia/Tokyo
+
+# https://circleci.com/docs/1.0/yarn
+
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+dependencies:
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+test:
+  override:
+    - yarn test
