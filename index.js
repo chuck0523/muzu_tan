@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const options = require('./app').get('options')
 
 // tool setup
