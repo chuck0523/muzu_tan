@@ -1,3 +1,6 @@
+# env
+.env
+
 # node application
 node_modules/
 npm-debug.log
