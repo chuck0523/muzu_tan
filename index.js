@@ -1,10 +1,10 @@
 require('dotenv').config()
 
-const options = require('./app').get('options')
+require('./app')
 
 // tool setup
-require('./lib/twitter').initClient(options)
-require('./lib/mongoose').createConnection(options)
+require('./lib/twitter').initClient()
+require('./lib/mongoose').createConnection()
 
 // activate bot
 require('./bot')
