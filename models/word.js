@@ -1,5 +1,5 @@
 const mongoose = require('../lib/mongoose')
-
+const { getRandomNumbers } = require('../lib/util')
 const Schema = mongoose.Schema;
 
 // schema
@@ -19,18 +19,9 @@ Word.findRandom = () => {
     .catch(err => console.error('Failed to get random word'))
 }
 
-Word.findRandoms = (questionCounts) => {
+Word.findRandoms = (size) => {
   return Word.count().exec()
-    .then(count => {
-      let nums = [Math.floor(Math.random() * count)]
-      while(nums.length < questionCounts) {
-        const random = Math.floor(Math.random() * count)
-        if(nums[nums.length - 1] !== random) {
-          nums.push(random)
-        }
-      }
-      return nums
-    })
+    .then(max => getRandomNumbers({ max, size }))
     .then(nums => Promise.all(nums.map(num => Word.findOne().skip(num))))
     .catch(err => console.error(`Failed to get random words: ${err}`))
 }
