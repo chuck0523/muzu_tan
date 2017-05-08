@@ -11,4 +11,5 @@ module.exports.yontaku = () => {
         `(4) ${words[3].meaning}\n` +
         '1, 2, 3, 4のどれかでお答えください'
     })
+    .catch(err => console.error('Failed to generate yontaku: ', err))
 }
