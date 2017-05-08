@@ -19,11 +19,11 @@ Word.findRandom = () => {
     .catch(err => console.error('Failed to get random word'))
 }
 
-Word.findRandoms = (count) => {
+Word.findRandoms = (questionCounts) => {
   return Word.count().exec()
     .then(count => {
       let nums = [Math.floor(Math.random() * count)]
-      while(nums.length < count) {
+      while(nums.length < questionCounts) {
         const random = Math.floor(Math.random() * count)
         if(nums[nums.length - 1] !== random) {
           nums.push(random)
