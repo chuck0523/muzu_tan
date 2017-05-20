@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-require('./app')
+require('./server')
 
 // tool setup
 require('./lib/twitter').initClient()

@@ -12,6 +12,12 @@ const WordSchema = new Schema({
 const Word = mongoose.model('Word', WordSchema)
 
 // add custom methods
+Word.findAll = () => {
+  return Word.find({})
+    .catch(err => console.error('Failed to get all words', err))
+}
+
+
 Word.findRandom = () => {
   return Word.count().exec()
     .then(count => Math.floor(Math.random() * count))

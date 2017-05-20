@@ -29,6 +29,7 @@
   "homepage": "https://github.com/chuck0523/muzu_tan#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
     "cron": "^1.2.1",
     "date-fns": "^1.28.3",
     "dotenv": "^4.0.0",
