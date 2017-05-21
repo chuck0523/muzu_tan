@@ -1,6 +1,6 @@
 const mongoose = require('../lib/mongoose')
 const { getRandomNumbers } = require('../lib/util')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 // schema
 const WordSchema = new Schema({

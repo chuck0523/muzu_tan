@@ -1,5 +1,5 @@
 const mongoose = require('../lib/mongoose')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 const { startOfYesterday } = require('date-fns')
 
 // schema
