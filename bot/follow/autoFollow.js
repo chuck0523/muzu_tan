@@ -1,14 +1,11 @@
 const twitter = require('../../lib/twitter').getClient()
 const { FollowLog } = require('../../models')
+const { sample } = require('../../lib/util')
 
 const AUTO_FOLLOW_KEYWORDS = ['TOEIC900', 'TOEIC高得点', '難しい英単語']
 
-const randomKeyword = () => {
-  return AUTO_FOLLOW_KEYWORDS[Math.floor(Math.random() * AUTO_FOLLOW_KEYWORDS.length)]
-}
-
 module.exports = () => {
-  twitter.searchTweets(randomKeyword(), 1)
+  twitter.searchTweets(sample(AUTO_FOLLOW_KEYWORDS), 1)
     .then(({ statuses }) => {
       if(statuses[0].user.following) {
         return Promise.reject('Already following')
@@ -26,6 +23,3 @@ module.exports = () => {
     })
     .catch(error => console.error('Failed to follow back: ', error))
 }
-
-module.exports.AUTO_FOLLOW_KEYWORDS = AUTO_FOLLOW_KEYWORDS
-module.exports.randomKeyword = randomKeyword
