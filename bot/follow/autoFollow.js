@@ -1,11 +1,9 @@
 const twitter = require('../../lib/twitter').getClient()
 const { FollowLog } = require('../../models')
-const { sample } = require('../../lib/util')
-
-const AUTO_FOLLOW_KEYWORDS = ['TOEIC900', 'TOEIC高得点', '難しい英単語']
+const { searchEnglishTopic } = require('../search')
 
 module.exports = () => {
-  twitter.searchTweets(sample(AUTO_FOLLOW_KEYWORDS), 1)
+  searchEnglishTopic()
     .then(({ statuses }) => {
       if(statuses[0].user.following) {
         return Promise.reject('Already following')
