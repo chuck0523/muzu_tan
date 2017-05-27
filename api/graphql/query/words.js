@@ -18,13 +18,23 @@ const WordType = new graphql.GraphQLObjectType({
     }
   }
 })
-
+const IdType = {
+  id : { type: new graphql.GraphQLNonNull(graphql.GraphQLInt) }
+}
 module.exports = {
   words: {
     type: new graphql.GraphQLList(WordType),
     resolve: () => {
       return Word.findAll()
         .then(words => words)
+    }
+  },
+  word: {
+    type: WordType,
+    args: IdType,
+    resolve: (_, { id }) => {
+      return Word.findById(id)
+        .then(word => word)
     }
   }
 }
