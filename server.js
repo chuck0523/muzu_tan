@@ -4,12 +4,11 @@ const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-const setApi = require('./api')
-
-app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
+app.set('port', (process.env.PORT || 5000))
+
+const setApi = require('./api')
 setApi(app)
 
 app.listen(app.get('port'), () => {
