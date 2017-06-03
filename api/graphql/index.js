@@ -10,6 +10,6 @@ const Schema = new graphql.GraphQLSchema({
 
 module.exports = graphqlHTTP({
   schema: Schema,
-  graphiql: true,
+  graphiql: process.env.NODE_ENV === 'development',
   pretty: true,
 })
