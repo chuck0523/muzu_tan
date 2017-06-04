@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.text({ type: 'application/graphql' })) // http://chuckwebtips.hatenablog.com/entry/2017/06/04/112419
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'))
 
