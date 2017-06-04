@@ -1,6 +1,6 @@
-const Promise = require('bluebird')
-const readFile = Promise.promisify(require('fs').readFile)
-const exec = Promise.promisify(require('child_process').exec)
+const { promisify } = require('util')
+const readFile = promisify(require('fs').readFile)
+const exec = promisify(require('child_process').exec)
 
 readFile('database.json', 'utf8')
   .then(JSON.parse)
