@@ -15,5 +15,7 @@ dependencies:
   cache_directories:
     - ~/.cache/yarn
 test:
+  pre:
+    - npm run lint
   override:
     - yarn test
