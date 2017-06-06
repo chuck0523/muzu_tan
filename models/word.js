@@ -22,7 +22,7 @@ Word.findRandom = () => {
   return Word.count().exec()
     .then(count => Math.floor(Math.random() * count))
     .then(random => Word.findOne().skip(random))
-    .catch(err => console.error('Failed to get random word'))
+    .catch(err => console.error('Failed to get random word: ', err))
 }
 
 Word.findRandoms = (size) => {
