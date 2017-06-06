@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node index",
     "import": "node scripts/importData",
+    "lint": "eslint ./**/*.js",
     "test": "jest --no-cache"
   },
   "jest": {
@@ -40,5 +41,8 @@
     "mongoose": "^4.9.5",
     "nodemailer": "^4.0.1",
     "twitter": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
   }
 }
