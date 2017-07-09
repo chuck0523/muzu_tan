@@ -21,6 +21,6 @@ twitter.userStream.on('follow', (data) => {
   }
 
   twitter.follow(data.source.id_str)
-    .then(res => FollowLog.saveFollowBack({ account }))
+    .then(() => FollowLog.saveFollowBack({ account }))
     .catch(err => console.error('Failed to follow back: ', err))
 })
