@@ -1,8 +1,9 @@
 const twitter = require('../../lib/twitter').getClient()
 const { Word } = require('../../models/index')
-const { sliceQuestion, sliceOptions, toHankaku } = require('./formatter')
+const { pickNumber, sliceQuestion, sliceOptions, toHankaku } = require('./formatter')
 
-module.exports.checkAnswer = (number, tweetId) => {
+module.exports.checkAnswer = (answer, tweetId) => {
+  const number = pickNumber(answer);
   return twitter.getTweet(tweetId)
     .then(({ text }) => {
       return Promise.all([

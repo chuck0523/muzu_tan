@@ -4,6 +4,14 @@ module.exports.removeAccountName = (text) => {
   return text.replace(AT_ACCOUNT_NAME, '').trim()
 }
 
+module.exports.pickNumber = (text) => {
+  const numberStr = text.split('').find(c => !isNaN(parseInt(c, 10)))
+  if(numberStr === undefined) {
+    throw new Error('Text doesn\'t contain any number')
+  }
+  return parseInt(numberStr, 10)
+}
+
 // Question format example:
 // @hogehoge 【shenanigan】の意味はどれでしょう？\n(1) 均衡\n(2) いたずら、悪ふざけ\n(3) 黙想、熟考、熟視、計画\n(4) いたずら、悪ふざけ\n1, 2, 3, 4のどれかでお答えください
 

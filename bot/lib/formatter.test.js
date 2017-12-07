@@ -8,6 +8,13 @@ test('Cannot remove not account name', () => {
   expect(formatter.removeAccountName('hoge')).not.toBe('')
 })
 
+test('Shuold pick first found number from string', () => {
+  expect(formatter.pickNumber('foobar8baz')).toBe(8)
+})
+test('Shuold throw error when text doesn\'t contains any number', () => {
+  expect(() => formatter.pickNumber('foobarbaz')).toThrowError('Text doesn\'t contain any number')
+})
+
 test('Find question word', () => {
   expect(formatter.sliceQuestion('【shenanigan】の意味はどれでしょう？')).toBe('shenanigan')
 })
