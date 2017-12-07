@@ -9,10 +9,11 @@ test('Cannot remove not account name', () => {
 })
 
 test('Shuold pick first found number from string', () => {
-  expect(formatter.pickNumber('foobar8baz')).toBe(8)
+  expect(formatter.pickNumber('foobar3baz')).toBe('3')
 })
 test('Shuold throw error when text doesn\'t contains any number', () => {
-  expect(() => formatter.pickNumber('foobarbaz')).toThrowError('Text doesn\'t contain any number')
+  return formatter.pickNumber('foobarbaz')
+    .catch(err => expect(err).toBe('Text doesn\'t contain any number'))
 })
 
 test('Find question word', () => {

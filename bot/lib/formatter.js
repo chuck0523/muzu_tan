@@ -4,12 +4,16 @@ module.exports.removeAccountName = (text) => {
   return text.replace(AT_ACCOUNT_NAME, '').trim()
 }
 
+/*
+*  @params text<string>
+*  @return number<string>
+*/
 module.exports.pickNumber = (text) => {
-  const numberStr = text.split('').find(c => !isNaN(parseInt(c, 10)))
-  if(numberStr === undefined) {
-    throw new Error('Text doesn\'t contain any number')
+  const number = text.split('').find(c => !isNaN(parseInt(c, 10)))
+  if(number === undefined) {
+    return Promise.reject('Text doesn\'t contain any number')
   }
-  return parseInt(numberStr, 10)
+  return number
 }
 
 // Question format example:

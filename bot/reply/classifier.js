@@ -1,7 +1,7 @@
 const { AT_ACCOUNT_NAME, OPTION_NUMBERS } = require('../constants')
 const { yontaku } = require('../lib/question')
 const { checkAnswer } = require('../lib/answer')
-const { removeAccountName } = require('../lib/formatter')
+const { removeAccountName, pickNumber } = require('../lib/formatter')
 const { ReplyLog } = require('../../models')
 
 const isEmptyReply = (reply) => {
@@ -9,7 +9,7 @@ const isEmptyReply = (reply) => {
 }
 const isAnswerReply = (reply) => {
   const text = reply.replace(AT_ACCOUNT_NAME, '').trim()
-  return OPTION_NUMBERS.includes(text)
+  return OPTION_NUMBERS.includes(text) || OPTION_NUMBERS.includes(pickNumber(text))
 }
 
 module.exports.replyCreator = (reply, tweetId) => {

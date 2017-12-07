@@ -14,6 +14,9 @@ test('Classify not empty reply', () => {
 test('Classify answer reply', () => {
   expect(classifiler.isAnswerReply(AT_ACCOUNT_NAME + ' ' + OPTION_NUMBERS[0])).toBeTruthy()
 })
+test('Classify answer reply with strings', () => {
+  expect(classifiler.isAnswerReply(AT_ACCOUNT_NAME + ' ' + `Answer shuold be ${OPTION_NUMBERS[0]}`)).toBeTruthy()
+})
 test('Classify not answer reply', () => {
   expect(classifiler.isAnswerReply(AT_ACCOUNT_NAME + 'hoge')).toBeFalsy()
 })
