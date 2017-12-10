@@ -5,11 +5,24 @@ module.exports.removeAccountName = (text) => {
 }
 
 /*
+* Convert Zenkaku number to Hankaku number
+*  @params c<string>
+*  @return <string>: Hankaku number in string type
+*/
+const toHankaku = (c) => {
+  if(ZENKAKU_OPTION_NUMBERS.includes(c)) {
+    return String.fromCharCode(c.charCodeAt(0)-0xFEE0)
+  }
+  return c
+}
+module.exports.toHankaku = toHankaku
+
+/*
 *  @params text<string>
 *  @return number<string>
 */
 module.exports.pickNumber = (text) => {
-  const number = text.split('').find(c => !isNaN(parseInt(c, 10)))
+  const number = text.split('').map(toHankaku).find(c => !isNaN(parseInt(c, 10)))
   if(number === undefined) {
     return Promise.reject('Text doesn\'t contain any number')
   }
@@ -30,11 +43,4 @@ module.exports.sliceOptions = (text) => {
     return Promise.reject('Couldn\'t find question options')
   }
   return text.split('\n').slice(1, -1).map(q => q.slice(4)) // 4 = length of '(1) '
-}
-
-module.exports.toHankaku = (number) => {
-  if(ZENKAKU_OPTION_NUMBERS.includes(number)) {
-    return String.fromCharCode(number.charCodeAt(0)-0xFEE0)
-  }
-  return number
 }

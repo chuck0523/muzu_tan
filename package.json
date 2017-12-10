@@ -11,7 +11,7 @@
     "start": "node index",
     "import": "node scripts/importData",
     "lint": "eslint ./**/*.js",
-    "test": "jest --no-cache"
+    "test": "jest --no-cache --watch"
   },
   "jest": {
     "testEnvironment": "node",

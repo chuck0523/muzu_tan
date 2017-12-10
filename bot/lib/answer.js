@@ -1,6 +1,6 @@
 const twitter = require('../../lib/twitter').getClient()
 const { Word } = require('../../models/index')
-const { pickNumber, sliceQuestion, sliceOptions, toHankaku } = require('./formatter')
+const { pickNumber, sliceQuestion, sliceOptions } = require('./formatter')
 
 module.exports.checkAnswer = (answer, tweetId) => {
   const number = pickNumber(answer);
@@ -10,7 +10,7 @@ module.exports.checkAnswer = (answer, tweetId) => {
         // answer word
         Word.findByName(sliceQuestion(text)),
         // selected word
-        Promise.resolve(sliceOptions(text)[toHankaku(number) - 1])
+        Promise.resolve(sliceOptions(text)[number - 1])
       ])
     })
     .then(words => { // words => [answer, selected]

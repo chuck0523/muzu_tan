@@ -11,6 +11,9 @@ test('Cannot remove not account name', () => {
 test('Shuold pick first found number from string', () => {
   expect(formatter.pickNumber('foobar3baz')).toBe('3')
 })
+test('Shuold pick first found Zenkaku number from string', () => {
+  expect(formatter.pickNumber('foobar３baz')).toBe('3')
+})
 test('Shuold throw error when text doesn\'t contains any number', () => {
   return formatter.pickNumber('foobarbaz')
     .catch(err => expect(err).toBe('Text doesn\'t contain any number'))
